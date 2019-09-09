@@ -17,5 +17,8 @@
             "EventHook\\": "src/",
             "EventHook\\Test\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.0"
     }
 }

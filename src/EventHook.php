@@ -16,28 +16,28 @@ class EventHook extends Container
 {
     use Singleton;
 
-    public function add($tag, $behavior, $callback)
+    public function add($tag, $behavior)
     {
         $callbackArray = parent::get($tag);
-        if (is_callable($callback)) {
-            $callbackArray[$behavior] = $callback;
+        if (is_callable($behavior)) {
+            $callbackArray[] = $behavior;
             return parent::set($tag, $callbackArray);
-        } elseif ($callback instanceof BehaviorInterface) {
-            $callbackArray[$behavior] = $callback;
+        } elseif ($behavior instanceof BehaviorInterface) {
+            $callbackArray[] = $behavior;
             return parent::set($tag, $callbackArray);
         } else {
             return false;
         }
     }
 
-    public function set($tag, $callback)
+    public function set($tag, $behavior)
     {
         $callbackArray = [];
-        if (is_callable($callback)) {
-            $callbackArray[] = $callback;
+        if (is_callable($behavior)) {
+            $callbackArray[] = $behavior;
             return parent::set($tag, $callbackArray);
-        } elseif ($callback instanceof BehaviorInterface) {
-            $callbackArray[] = $callback;
+        } elseif ($behavior instanceof BehaviorInterface) {
+            $callbackArray[] = $behavior;
             return parent::set($tag, $callbackArray);
         } else {
             return false;
