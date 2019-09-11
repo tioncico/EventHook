@@ -8,14 +8,17 @@
 
 namespace EventHook\Test\Behavior;
 
-use EventHook\Behavior\BehaviorInterface;
-
-class Test implements BehaviorInterface
+class Test
 {
-    public function run($tag, $param)
+    public function run($a,$b,$c)
     {
-        var_dump($tag,$param);
+        return [$a,$b,$c];
         // TODO: Implement run() method.
+    }
+    
+    
+    function test($a,$b,$c){
+        return [$a,$b,$c];
     }
 
 }
