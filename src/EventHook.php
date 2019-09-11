@@ -19,27 +19,8 @@ class EventHook extends Container
     public function add($tag, $behavior)
     {
         $callbackArray = parent::get($tag);
-        if (is_callable($behavior)) {
-            
-            $callbackArray[] = $behavior;
-            return parent::set($tag, $callbackArray);
-            
-        } elseif ($behavior instanceof BehaviorInterface) {
-            
-            $callbackArray[] = $behavior;
-            return parent::set($tag, $callbackArray);
-            
-        }elseif(is_object($behavior)){
-            
-            $callbackArray[] = $behavior;
-            return parent::set($tag, $callbackArray);
-            
-        }elseif(class_exists($behavior)){
-            $callbackArray[] = $behavior;
-            return parent::set($tag, $callbackArray);
-        } else {
-            return false;
-        }
+        $callbackArray[] = $behavior;
+        return parent::set($tag, $callbackArray);
     }
 
     public function set($tag, $behavior)
