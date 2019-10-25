@@ -10,15 +10,12 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "easyswoole/component": "^1.0"
+        "easyswoole/component": "^2.0"
     },
     "autoload": {
         "psr-4": {
             "EventHook\\": "src/",
             "EventHook\\Test\\": "tests/"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.0"
     }
 }
